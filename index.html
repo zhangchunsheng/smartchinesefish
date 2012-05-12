@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>index</title>
+		<meta charset="utf-8" />
+		<script type="text/javascript">
+			var connection = new WebSocket("ws://127.0.0.1:8080");
+			
+			connection.onopen = function() {
+				console.log("open");
+			}
+			
+			connection.onerror = function(error) {
+				console.log("error");
+			}
+			
+			connection.onmessage = function(message) {
+				connection.send("hello");
+				console.log("message:" + message.data);
+			}
+		</script>
+	</head>
+	<body>
+		hello world!
+	</body>
+</html>

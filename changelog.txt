@@ -1,0 +1,11 @@
+2012-04-07
+1、初始化项目
+2、调试nodejs
+3、增加smartfish
+4、增加circle
+5、nodejs获取数据
+6、单击事件
+7、解决mousedown、mousemove、mouseup问题:circle使用mousedown、mouseup，canvas使用mousemove
+8、更新smartfish和circle
+9、增加编译脚本
+10、增加触摸支持

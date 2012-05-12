@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>demo</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0">
+		<meta name="format-detection" content="telephone=no">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+		<link rel="apple-touch-startup-image" href="startup.png">
+		<link type="text/css" rel="stylesheet" href="../css/game.css">
+		<link rel="shortcut icon" href="../bluefish.png" />
+		<link rel="apple-touch-icon" href="../bluefish.png" />
+	</head>
+	<body>
+		<canvas id="canvas" style="width:480px;height:300px" width="480px" height="300px"></canvas>
+		<div id="num" class="circle" style="left:10px;top:10px">10</div>
+		<div id="result" class="rect" style="" data-score="0">分数：100</div>
+		<script type="text/javascript" src="../js/jq.mobi.min.js"></script>
+		<script type="text/javascript" src="../js/game.js"></script>
+		<script type="text/javascript">
+			function init() {
+					function onOriChange() {
+							var bodyStyle = document.body.style,
+							availHeight = window.screen.availHeight,
+							orientation = window.orientation;
+							bodyStyle.height = orientation == 0 || orientation == 180 ? "417px" : "269px",
+							setTimeout(scrollTo, 100, 0, 1)
+					}
+					addEventListener("orientationchange", onOriChange, !1),
+					addEventListener("scroll", function() {
+							!pageYOffset && scrollTo(0,1)
+					}, !1),
+					onOriChange()
+			}
+			init();
+		</script>
+	</body>
+</html>

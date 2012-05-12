@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="smartfish" basedir="." default="main">
+	<description>
+		this is a smartfish
+	</description>
+	<property name="css.dir" value="css" />
+	<property name="js.dir" value="js" />
+	<property name="demo.dir" value="demo" />
+	<property name="images.dir" value="images" />
+	<property name="build.dir" value="build" />
+	<property name="lib.dir" value="lib" />
+	
+	<target name="init">
+		<delete file="${js.dir}/game.min.js" />
+	</target>
+	<target name="compress" depends="init">
+		<property name="yui.compress" value="${lib.dir}/yuicompressor-2.4.8pre.jar" />
+		<apply executable="java" parallel="false" verbose="true" dest="${js.dir}" taskname="js.compile">
+			<fileset dir="${js.dir}">
+				<include name="game.js" />
+			</fileset>
+			<arg line="-jar" />
+			<arg path="${yui.compress}" />
+			<arg line="--type js --charset UTF-8 -o" />
+			<mapper type="glob" from="*.js" to="*.min.js" />
+			<targetfile />
+		</apply>
+	</target>
+	
+	<target name="main" depends="compress" description="compress js">
+		
+	</target>
+</project>
